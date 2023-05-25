@@ -25,6 +25,7 @@ resource "azurerm_key_vault" "kv_02" {
   network_acls {
     default_action = "Deny"
     bypass         = "AzureServices"
+    ip_rules       = data.github_ip_ranges.gh.actions
   }
 }
 
