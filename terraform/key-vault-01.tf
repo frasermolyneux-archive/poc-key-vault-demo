@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "kv_01" {
 resource "azurerm_key_vault" "kv_01" {
   for_each = toset(var.locations)
 
-  name                = format("kv%s%s01", random_id.environment_id.hex, var.environment)
+  name                = format("kv%s%s01", lower(random_string.location[each.value].result), var.environment)
   location            = azurerm_resource_group.kv_01[each.value].location
   resource_group_name = azurerm_resource_group.kv_01[each.value].name
   tenant_id           = data.azurerm_client_config.current.tenant_id
