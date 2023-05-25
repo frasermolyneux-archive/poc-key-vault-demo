@@ -24,6 +24,11 @@ resource "azurerm_private_dns_zone" "file" {
   resource_group_name = azurerm_resource_group.rg[var.primary_location].name
 }
 
+resource "azurerm_private_dns_zone" "vault" {
+  name                = "privatelink.vaultcore.azure.net"
+  resource_group_name = azurerm_resource_group.rg[var.primary_location].name
+}
+
 // Link the private DNS zones to the virtual network to enable private link DNS zone resolution
 resource "azurerm_private_dns_zone_virtual_network_link" "azurewebsites" {
   for_each = toset(var.locations)
