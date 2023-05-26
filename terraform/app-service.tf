@@ -19,18 +19,6 @@ resource "azurerm_linux_web_app" "app" {
     application_stack {
       dotnet_version = "7.0"
     }
-
-    ip_restriction {
-      action      = "Allow"
-      service_tag = "AzureFrontDoor.Backend"
-
-      headers {
-        x_azure_fdid = [azurerm_cdn_frontdoor_profile.fd.resource_guid]
-      }
-
-      name     = "RestrictToFrontDoor"
-      priority = 1000
-    }
   }
 }
 

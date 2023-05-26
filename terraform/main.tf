@@ -33,7 +33,7 @@ resource "random_id" "environment_id" {
 resource "random_string" "location" {
   for_each = toset(var.locations)
 
-  length  = 12
+  length  = 10
   special = false
 }
 
