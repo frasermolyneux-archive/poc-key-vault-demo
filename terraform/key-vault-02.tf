@@ -24,6 +24,7 @@ resource "azurerm_key_vault" "kv_02" {
 
   network_acls {
     default_action = "Allow"
+    bypass         = "AzureServices"
   }
 }
 
