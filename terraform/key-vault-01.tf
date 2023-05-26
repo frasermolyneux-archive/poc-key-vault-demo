@@ -2,7 +2,7 @@ resource "azurerm_resource_group" "kv_01" {
   for_each = toset(var.locations)
 
   name     = format("rg-kv-%s-%s-%s-01", random_id.environment_id.hex, var.environment, each.value)
-  location = var.locations[0]
+  location = each.value
 
   tags = var.tags
 }
