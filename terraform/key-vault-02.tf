@@ -22,8 +22,9 @@ resource "azurerm_key_vault" "kv_02" {
 
   sku_name = "standard"
 
+  public_network_access_enabled = false
   network_acls {
-    default_action = "Allow"
+    default_action = "Deny"
     bypass         = "AzureServices"
   }
 }
@@ -65,7 +66,7 @@ resource "azurerm_private_endpoint" "kv_02" {
   private_dns_zone_group {
     name = "default"
     private_dns_zone_ids = [
-      azurerm_private_dns_zone.vault.id,
+      azurerm_private_dns_zone.dns["vault"].id,
     ]
   }
 
