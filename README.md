@@ -37,7 +37,7 @@ Steps for running demos are in the two pipelines:
 
 ## ARM Integration Demo
 
-These demos use the `key-vault-01.tf` resource which has the `enabled_for_deployment` property set to `true`. This allows the ARM template to retrieve secrets from the Key Vault during deployment.
+These demos use the `key-vault-01.tf` resource which has the `enabled_for_template_deployment` property set to `true`. This allows the ARM template to retrieve secrets from the Key Vault during deployment.
 
 Manual running:
 
