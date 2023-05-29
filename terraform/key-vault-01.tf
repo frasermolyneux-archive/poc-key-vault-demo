@@ -39,14 +39,10 @@ resource "azurerm_role_assignment" "kv_01_demo" {
   principal_id         = "3270dd31-29ac-486d-8a16-e9179660c8d7"
 }
 
-resource "azurerm_key_vault_secret" "kv_01_example" {
+resource "azurerm_role_assignment" "kv_01_demo_io" {
   for_each = toset(var.locations)
 
-  name         = "my-super-secret"
-  value        = random_string.location[each.value].result
-  key_vault_id = azurerm_key_vault.kv_01[each.value].id
-
-  depends_on = [
-    azurerm_role_assignment.kv_01_sp
-  ]
+  scope                = azurerm_key_vault.kv_01[each.value].id
+  role_definition_name = "Key Vault Secrets User"
+  principal_id         = "3270dd31-29ac-486d-8a16-e9179660c8d7"
 }
