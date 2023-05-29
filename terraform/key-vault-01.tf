@@ -17,6 +17,7 @@ resource "azurerm_key_vault" "kv_01" {
 
   soft_delete_retention_days = 7
 
+  enabled_for_deployment    = true
   enable_rbac_authorization = true
   purge_protection_enabled  = true
 

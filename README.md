@@ -32,3 +32,16 @@ Steps for running demos are in the two pipelines:
 
 * [using-key-vault-task](.azure-pipelines/using-key-vault-task.yml)
 * [using-variable-groups](.azure-pipelines/using-variable-groups.yml)
+
+---
+
+## ARM Integration Demo
+
+These demos use the `key-vault-01.tf` resource which has the `enabled_for_deployment` property set to `true`. This allows the ARM template to retrieve secrets from the Key Vault during deployment.
+
+Manual running:
+
+```powershell
+    az group create --name rg-arm-direct-ref --location uksouth
+    az deployment group create --resource-group rg-arm-direct-ref --template-file main.json --parameters params.json
+```

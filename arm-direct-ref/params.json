@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminLogin": {
+            "value": "sqladdy"
+        },
+        "adminPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/ecc74148-1a84-4ec7-99bb-d26aba7f9c0d/resourceGroups/rg-kv-f2ca5030b704-poc-uksouth-01/providers/Microsoft.KeyVault/vaults/kvenstphiibrpoc01"
+                },
+                "secretName": "sqlpassword"
+            }
+        },
+        "sqlServerName": {
+            "value": "sqlhu32eghb2hjs"
+        }
+    }
+}
