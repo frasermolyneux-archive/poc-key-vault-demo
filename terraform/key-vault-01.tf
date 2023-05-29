@@ -22,3 +22,37 @@ resource "azurerm_key_vault" "kv_01" {
 
   sku_name = "standard"
 }
+
+resource "azurerm_monitor_diagnostic_setting" "kv_01" {
+  for_each = toset(var.locations)
+
+  name = azurerm_log_analytics_workspace.law.name
+
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+
+  target_resource_id = azurerm_key_vault.kv_01[each.value].id
+
+  metric {
+    category = "AllMetrics"
+
+    retention_policy {
+      enabled = false
+    }
+  }
+
+  enabled_log {
+    category = "audit"
+
+    retention_policy {
+      enabled = false
+    }
+  }
+
+  enabled_log {
+    category = "allLogs"
+
+    retention_policy {
+      enabled = false
+    }
+  }
+}
