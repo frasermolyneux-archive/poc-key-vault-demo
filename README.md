@@ -41,6 +41,8 @@ These demos use the `key-vault-01.tf` resource which has the `enabled_for_templa
 
 Manual running:
 
+Create a secret within the key-vault-01 named `sqlpassword`. Update the params.json file with the correct naming etc.
+
 ```powershell
     az group create --name rg-arm-direct-ref --location uksouth
     az deployment group create --resource-group rg-arm-direct-ref --template-file main.json --parameters params.json
