@@ -1,0 +1,21 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: 'spn-poc-key-vault-demo-poc'
+    KeyVaultName: 'kvuz6zdxcv7upoc01'
+    SecretsFilter: '*'
+    RunAsPreJob: false
+
+- script: |
+    echo This task will output the secret but it will be masked:
+    echo $(my-super-secret)
+  displayName: 'Output secrets (but masked)'
