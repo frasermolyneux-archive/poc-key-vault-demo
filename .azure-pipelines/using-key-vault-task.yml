@@ -1,5 +1,10 @@
+# To demo this pipeline:
+# 1. Deploy the existing solution to Azure
+# 2. Update the `KeyVaultName` in this pipeline file and commit changes
+# 3. Create a new pipeline in Azure DevOps and select this file, then run it
+
 trigger:
-- main
+- none
 
 pool:
   vmImage: ubuntu-latest

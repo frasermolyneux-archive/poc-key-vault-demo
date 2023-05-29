@@ -27,3 +27,8 @@ Naturally, this is a limited architecture for the POC with many additional consi
 ## Azure Pipelines Integration Demo
 
 [proof-of-concepts-management](https://github.com/frasermolyneux/proof-of-concepts-management) has created a service connection within the [frasermolyneux/MSFT](https://dev.azure.com/frasermolyneux/MSFT) AzDo project. This service connection is used to authenticate to the public Key Vault and retrieve a secret value.
+
+Steps for running demos are in the two pipelines:
+
+* [using-key-vault-task](.azure-pipelines/using-key-vault-task.yml)
+* [using-variable-groups](.azure-pipelines/using-variable-groups.yml)

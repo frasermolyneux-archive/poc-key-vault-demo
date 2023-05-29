@@ -1,10 +1,11 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# To demo this pipeline:
+# 1. Deploy the existing solution to Azure
+# 2. Create a variable group and reference the created Key Vault
+# 3. Update the `group` in this pipeline file and commit changes
+# 4. Create a new pipeline in Azure DevOps and select this file, then run it
 
 trigger:
-- main
+- none
 
 pool:
   vmImage: ubuntu-latest
