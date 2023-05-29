@@ -41,7 +41,7 @@ resource "azurerm_monitor_diagnostic_setting" "kv_01" {
   }
 
   enabled_log {
-    category = "audit"
+    category = "AuditEvent"
 
     retention_policy {
       enabled = false
@@ -49,7 +49,7 @@ resource "azurerm_monitor_diagnostic_setting" "kv_01" {
   }
 
   enabled_log {
-    category = "allLogs"
+    category = "AzurePolicyEvaluationDetails"
 
     retention_policy {
       enabled = false
