@@ -16,7 +16,7 @@ steps:
 - task: AzureKeyVault@2
   inputs:
     azureSubscription: 'spn-poc-key-vault-demo-poc'
-    KeyVaultName: 'kvuz6zdxcv7upoc01'
+    KeyVaultName: 'kvbmhgymdwcypoc01'
     SecretsFilter: '*'
     RunAsPreJob: false
 
