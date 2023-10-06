@@ -12,11 +12,6 @@ resource "azuread_group_member" "demo_membership" {
   member_object_id = "3270dd31-29ac-486d-8a16-e9179660c8d7"
 }
 
-// https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#key-vault-secrets-officer
-data "azurerm_role_definition" "kvsecretsofficer" {
-  name = "Key Vault Secrets Officer"
-}
-
 // Assign group to pim eligible
 resource "azurerm_pim_eligible_role_assignment" "kvofficer_eligible_group" {
   for_each = toset(var.locations)
