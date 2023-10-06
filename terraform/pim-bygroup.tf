@@ -24,6 +24,12 @@ resource "azurerm_pim_eligible_role_assignment" "kvofficer_eligible_group_kv01" 
   scope              = azurerm_key_vault.kv_01[each.value].id
   role_definition_id = "${data.azurerm_subscription.primary.id}${data.azurerm_role_definition.contributor.id}"
   principal_id       = azuread_group.kvofficer_eligible_group.object_id
+
+  schedule {
+    expiration {
+      duration_days = 14
+    }
+  }
 }
 
 resource "azurerm_pim_eligible_role_assignment" "kvofficer_eligible_group_kv02" {
@@ -32,4 +38,10 @@ resource "azurerm_pim_eligible_role_assignment" "kvofficer_eligible_group_kv02" 
   scope              = azurerm_key_vault.kv_02[each.value].id
   role_definition_id = "${data.azurerm_subscription.primary.id}${data.azurerm_role_definition.contributor.id}"
   principal_id       = azuread_group.kvofficer_eligible_group.object_id
+
+  schedule {
+    expiration {
+      duration_days = 14
+    }
+  }
 }
